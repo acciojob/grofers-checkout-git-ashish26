@@ -4,10 +4,11 @@ document.body.appendChild(getSumBtn);
 
 const getSum = () => {
 //Add your code here
-   const priceElements = document.querySelectorAll(".prices");
+   const priceElements = document.querySelectorAll(".price");
   let total = 0;
 	  priceElements.forEach(priceEl => {
-    const value = parseFloat(priceEl.textContent);
+        const rawText = priceEl.textContent.replace(/[^0-9.]/g, "");
+    const value = parseFloat(rawText);
     if (!isNaN(value)) {
       total += value;
     }
